@@ -1,4 +1,4 @@
-from archivos.menus import menuprincipal, submenu, limpiar_pantalla
+from menus import menuprincipal, submenu, limpiar_pantalla
 
 #-----------------------------------------------------------------------------------------------------------------
 def main():
@@ -43,6 +43,9 @@ def main():
 
                 elif OpUsuario == 4:
                     pass
+                
+                elif OpUsuario == 5:
+                    pass
 
                 else:
                     pass
@@ -60,6 +63,9 @@ def main():
                     pass
 
                 elif OpUsuario == 4:
+                    pass
+
+                elif OpUsuario == 5:
                     pass
 
                 else:
@@ -80,6 +86,9 @@ def main():
                 elif OpUsuario == 4:
                     pass
 
+                elif OpUsuario == 5:
+                    pass
+
                 else:
                     pass
 
@@ -98,6 +107,9 @@ def main():
                 elif OpUsuario == 4:
                     pass
 
+                elif OpUsuario == 5:
+                    pass
+
                 else:
                     pass
 
@@ -114,6 +126,9 @@ def main():
                     pass
 
                 elif OpUsuario == 4:
+                    pass
+
+                elif OpUsuario == 5:
                     pass
 
                 else:
