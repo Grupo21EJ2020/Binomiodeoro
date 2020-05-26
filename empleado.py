@@ -62,15 +62,36 @@ def SubMenuEmpleado(opcion):
 
             ListaEmpleadosVigentes = []
 
+            IDEmpleados = []
             for E in ListaEmpleados:
-                N = E[0:1]
-                for B in ListaBorrados:
-                    if N == B:
-                        pass
-                    else:
-                        ListaEmpleadosVigentes.append(E)
+                N = (E[0:1])
+                IDEmpleados.append(N)
 
+            IDEmpleadoSET = set(IDEmpleados)
+            ListaEmpleadosSET = set(ListaBorrados)
+
+            final = IDEmpleadoSET - ListaEmpleadosSET
+            FINAL = list(final)
+
+
+
+            for E in ListaEmpleados:
+                N = (E[0:1])
+                for S in FINAL:
+                    if N == S:
+                        ListaEmpleadosVigentes.append(E)
+                else:
+                    pass
+            ArchivoEmpleado.close()
+            ArchivoEB.close()
             print(ListaEmpleadosVigentes)
+            print("##Empleado borrado##")
+
+
+
+
+
+            
 
                         
                 
