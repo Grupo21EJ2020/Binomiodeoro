@@ -17,16 +17,40 @@ class Empleado:
     @direccion.setter
     def direccion(self,valor):
         self.__nombre = valor
+    
+    ######
+    ######
+    #Agregar
+    #Borrar
+    #Modificar
+    #Info de todos
+    #Cosulta individual
+
+
+    
 
 
 
-ArchEmple = open("./archivos/Empleado.txt","a",encoding="utf8")
-
-Lineas = ArchEmple.readlines()
-Lineas[3] = "esta es la linea 4 indice 3"
 
 
+opcion = 1
 
-ArchEmple.close()
+def SubMenuEmpleado(opcion):
+        if opcion == 1:
+            #AGREGAR#
+            ID = int(input("Dame el ID de el empleado nuevo:"))
+            nombre = input("Dame el Nombre del empleado:")
+            direccion = input("Dame la direccion de tu empleado:")
+
+            ArchivoEmpleado = open("./archivos/Empleado.txt","a",encoding="utf8")
+            ArchivoEmpleado.write(f"{ID}|{nombre}|{direccion}\n")
+            
+            ArchivoEmpleado.close()
+       
+
+SubMenuEmpleado(opcion)
+
+
+
         
 
