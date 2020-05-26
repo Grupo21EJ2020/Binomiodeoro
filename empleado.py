@@ -33,7 +33,7 @@ class Empleado:
 
 
 
-opcion = 1
+
 
 def SubMenuEmpleado(opcion):
         if opcion == 1:
@@ -46,8 +46,52 @@ def SubMenuEmpleado(opcion):
             ArchivoEmpleado.write(f"{ID}|{nombre}|{direccion}\n")
             
             ArchivoEmpleado.close()
-       
+        elif opcion == 2:
+            IDborrarINT = int(input("Dame la id del empledo que quieres borrar"))
+            IDborrarSTR = str(IDborrarINT)
 
+            ArchivoEB = open("./archivos/EmpleadoBorrado.txt","a",encoding="utf8")
+            ArchivoEB.write(f"{IDborrarSTR}\n")
+            ArchivoEB.close()
+
+            ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
+            ArchivoEB = open("./archivos/EmpleadoBorrado.txt","r",encoding="utf8")
+
+            ListaEmpleados = (ArchivoEmpleado.read().splitlines())
+            ListaBorrados = (ArchivoEB.read().splitlines())
+
+            ListaEmpleadosVigentes = []
+
+            for E in ListaEmpleados:
+                N = E[0:1]
+                for B in ListaBorrados:
+                    if N == B:
+                        pass
+                    else:
+                        ListaEmpleadosVigentes.append(E)
+
+            print(ListaEmpleadosVigentes)
+
+                        
+                
+
+
+                
+
+            
+
+            
+
+            
+                    
+
+
+
+                
+
+            
+
+opcion = 2
 SubMenuEmpleado(opcion)
 
 
