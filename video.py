@@ -69,27 +69,25 @@ class Video:
     @classmethod
     def EditarVideo(self,archivo,clave):
         Lista = []
-        Lista2 = []
-        archivo1 = open(archivo,"r",encoding ='utf8')
-        store = archivo1.readlines()
-        for n in store:
-            n = n.replace("\n", "")
+        Numeros = ['0','1','2','3','4','5','6','7','8','9']
+        archivo1 = open(archivo, encoding='utf8')
+        for n in archivo1:
             Lista.append(n)
-        for y in Lista:
-            datos = y.split("|")
-            if datos[0] == clave:
+            if clave == n[0] and n[1] not in Numeros:
+                if clave == n[0]:
+                    TituloN, UrlN, FechaN = input('Nombre nuevo: '), input('Url nueva: '), input('Fecha Nueva: ')
+                    V = clave + '|' + TituloN + '|' + UrlN + '|' + FechaN + '\n'
+                    Lista.remove(n)
+                    Lista.append(V)
+            elif clave == (n[0] + n[1]):
                 TituloN, UrlN, FechaN = input('Nombre nuevo: '), input('Url nueva: '), input('Fecha Nueva: ')
                 V = clave + '|' + TituloN + '|' + UrlN + '|' + FechaN + '\n'
-                Lista2.append(V)
-            else:
-                datos = (y + "\n")
-                Lista2.append(datos)
-        archivos2 = open(archivo,"w",encoding = "utf8")                
-        for x in Lista2:
-            Nuevo = x
-            archivos2.write(Nuevo)       
-        archivos2.close()
-        
+                Lista.remove(n)
+                Lista.append(V)
+            archivos2 = open(archivo,"w",encoding = "utf8")                
+            for x in Lista:
+                archivos2.write(x)       
+            archivos2.close()
         archivo1.close()
     #--------------------------------------------------------------------------------------------------------
     @classmethod
@@ -97,9 +95,11 @@ class Video:
         nombre, url, fechapublicacion = input('Nombre: '), input('Url: '), input('Fecha de publicación: ')
         Lista = []
         archivo1 = open(archivo2, encoding='utf8')
+        cont = 6
         for n in archivo1:
             dato = n.split('\n')
             contador = contador - 1
+            cont = cont - 1
             Lista.append(dato[0])
             if contador == 0:
                 idVideo = str(int(dato[0]) + 1)
@@ -109,6 +109,8 @@ class Video:
             for a in Lista:
                 archivo3.write(a + '\n')
             archivo3.close()
+            if cont == 0:
+                break
         archivo1.close()
         V = Video(idVideo,nombre,url,fechapublicacion)
         V.AgregarVideo()
@@ -127,9 +129,9 @@ class Video:
             Video.Eliminar(archivo,clave)
 
         elif Opcion == 3:
-            Clave = input('¿Cual es la clave del video que quieres editar?\n')
+            clave = input('¿Cual es la clave del video que quieres editar?\n')
             archivo = './archivos/videos.txt'
-            Video.EditarVideo(archivo,Clave)
+            Video.EditarVideo(archivo,clave)
 
         elif Opcion == 4:
             archivo = './archivos/videos.txt'
