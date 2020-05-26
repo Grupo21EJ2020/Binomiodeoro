@@ -118,7 +118,7 @@ class Video:
         if Opcion == 1:
             contador = 4
             archivo = './archivos/videos.txt'
-            archivo2 = 'Numeros.txt'
+            archivo2 = './archivos/Numeros.txt'
             Video.Agregar(archivo,archivo2,contador)
 
         elif Opcion == 2:
