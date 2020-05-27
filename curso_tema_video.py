@@ -45,16 +45,24 @@ class CursoTemaVideo:
             archivo2.close()
         archivo1.close()
     
-    #Modificar-----------------------------------------------------------------------------
+#Modificar-----------------------------------------------------------------------------
     @classmethod
     def ModificarCursoTemaVideo(self,clave):
-        IDCTTn, IDVIDn = input("cual es el ID curso tema"), input("cual es el ID del video")
-        nuevoid = str(clave) + "|" + str(IDCTTn) + "|" + str(IDVIDn)
-        with open('./archivos/Curso_Tema_Video.txt', 'r') as file:
-            data = file.readlines()
-        data[clave-1] = f'{nuevoid}\n'
-        with open('./archivos/Curso_Tema_Video.txt', 'w') as file:
-            file.writelines(data)
+        Lista = []
+        archivo1 = open('./archivos/Curso_Tema_Video.txt', encoding='utf8')
+        for n in archivo1:
+            Lista.append(n)
+            dato = n.split('|')
+            if clave == dato[0]:
+                IDCTTn, IDVIDn = input("cual es el ID curso tema"), input("cual es el ID del video")
+                CTV = clave + '|' + IDCTTn + '|' + IDVIDn + '\n'
+                Lista.remove(n)
+                Lista.append(CTV)
+            archivos2 = open('./archivos/Curso_Tema_Video.txt',"w",encoding = "utf8")                
+            for x in Lista:
+                archivos2.write(x)       
+            archivos2.close()
+        archivo1.close()
     
     #Consultar todo----------------------------------------------------------------------
     @classmethod
@@ -70,10 +78,12 @@ class CursoTemaVideo:
     #Consulta especifica---------------------------------------------------------------------
     @classmethod
     def ConsultarEspCursoTemaVideo(self,clave):
-        #f = open("./archivos/Curso_Tema_Video.txt", "r")
-        file = open('./archivos/Curso_Tema_Video.txt')
-        all_lines = file.readlines()
-        print(all_lines[clave-1])
+        archivo = open('./archivos/Curso_Tema_Video.txt',encoding='utf8')
+        for i in archivo.readlines():
+            i = list(i)
+            if clave == lista[0]:
+                print(i)
+        archivo.close()
 
     @staticmethod
     def OpcionCTV(Opcion):
@@ -123,3 +133,6 @@ class CursoTemaVideo:
         if Opcion == 5:
             clave = int(input('¿Cual es la clave del tema del video que quieres imprimir?\n'))
             CursoTemaVideo.ConsultarEspCursoTemaVideo(clave)
+
+n = int(input("dame"))
+CursoTemaVideo.OpcionCTV(n)
