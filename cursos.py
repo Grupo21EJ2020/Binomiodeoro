@@ -67,3 +67,11 @@ class Curso:
         nombre = input("Introduce el nombre del curso: ")
         return nombre
     
+
+   #Metodo consultar todo
+    @classmethod
+    def consultar_todo(self, fichero):
+        archivo = open(fichero,encoding='utf8')
+        print(archivo.read())
+        archivo.close()
+    
