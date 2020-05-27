@@ -12,6 +12,16 @@ class TEMAS:
     def nombre(self,valor):
         self.__nombre = valor
 
+#--------------------------------------------------
+@classmethod
+    def ConsultarTodo(self,archivo):
+        archivo1 = open(archivo, encoding='utf8')
+        print(archivo1.read())
+        archivo1.close()
+
+#--------------------------------------------------
+
+
 
 
     
