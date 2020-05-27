@@ -12,7 +12,7 @@ def limpiar_pantalla():
 from video import *
 from temas import *
 from empleado import Empleado
-from curso_tema import *
+
 
 
 #-----------------------------------------------------------------------------------------------------------------

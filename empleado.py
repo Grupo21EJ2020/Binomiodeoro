@@ -112,19 +112,22 @@ class Empleado:
         ##CONSULTA ESPECIFICA##
         elif opcion == 5:
             ConsultaEspecifica = int(input("Dame el ID del empledo que quieres consultar:"))
+            limpiar()
             ConsultaSRT = str(ConsultaEspecifica)
             Actualizacion2 = (EmpleadoVigente())
-
+            print("-"*40)
             for Z in Actualizacion2:
                 A = (Z[0:1])
                 if A == ConsultaSRT:
                     print(Z)
+            print("-"*40)
             
         elif opcion == 4:
             Actualizacion3 = (EmpleadoVigente())
             ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
+            limpiar()
             ListaEmpleados = (ArchivoEmpleado.read().splitlines())
-            
+            print("-"*40)
     
             for F in ListaEmpleados:
                 A = (F[0:1])
@@ -134,6 +137,7 @@ class Empleado:
                         print(F)
                     else:
                         pass
+            print("-"*40)
             
                 
                 
