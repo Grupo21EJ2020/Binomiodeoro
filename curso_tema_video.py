@@ -57,8 +57,9 @@ class CursoTemaVideo:
             file.writelines(data)
     
     #Consultar todo----------------------------------------------------------------------
-    def ConsultarCursoTemaVideo():
-        archivo = open('./archivos/Curso_Tema_Video.txt',"r",encoding="utf8")
+    @classmethod
+    def ConsultarCursoTemaVideo(self,ubicacion):
+        archivo = open(ubicacion,"r",encoding="utf8")
         for x in archivo:
             datos = x.split('|')
             print("idCTV:",datos[0])
@@ -74,7 +75,7 @@ class CursoTemaVideo:
         all_lines = file.readlines()
         print(all_lines[clave-1])
 
-    #Submenú temporal---------------------------------------------------------------------------------
+    @staticmethod
     def OpcionCTV(Opcion):
         #agregar
         if Opcion == 1:
@@ -116,8 +117,7 @@ class CursoTemaVideo:
         #consultarTodo
         if Opcion == 4:
             archivo = './archivos/Curso_Tema_Video.txt'
-            t = CursoTemaVideo
-            t.ConsultarCursoTemaVideo()
+            CursoTemaVideo.ConsultarCursoTemaVideo(archivo)
         
         #consultarEsp
         if Opcion == 5:
