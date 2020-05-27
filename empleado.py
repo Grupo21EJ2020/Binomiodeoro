@@ -53,14 +53,6 @@ class Empleado:
     def direccion(self,valor):
         self.__nombre = valor
     
-     
-
-    
-    
-   
-
-    
-
     
     @classmethod
     def OpciondeEmpleado(self,opcion):
