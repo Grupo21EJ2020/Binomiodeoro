@@ -33,15 +33,12 @@ class Video:
     #--------------------------------------------------------------------------------
     @classmethod
     def Eliminar(self,clave):
-        Numeros = ['0','1','2','3','4','5','6','7','8','9']
         Lista = []
         archivo1 = open('./archivos/videos.txt', encoding='utf8')
         for n in archivo1:
             Lista.append(n)
-            if clave == n[0] and n[1] not in Numeros:
-                if clave == n[0]:
-                    Lista.remove(n)
-            elif clave == (n[0] + n[1]): 
+            dato = n.split('|')
+            if clave == dato[0]:
                 Lista.remove(n)
             archivo2 = open('./archivos/videos.txt',"w",encoding = "utf8")
             for g in Lista:
@@ -53,15 +50,11 @@ class Video:
     def ConsultaEspecifica(self,clave):
         archivo1 = open('./archivos/videos.txt', encoding='utf8')
         Lista = []
-        Numeros = ['0','1','2','3','4','5','6','7','8','9']
         for n in archivo1:
             Lista.append(n)
-            if clave == n[0] and n[1] not in Numeros:
-                if clave == n[0]:
-                    print(n)
-            elif len(clave) == len(n[0] + n[1]):
-                if clave == (n[0] + n[1]):
-                    print(n)
+            dato = n.split('|')
+            if clave == dato[0]:
+                print(n)
         archivo1.close()
     #----------------------------------------------    
     @classmethod
@@ -73,17 +66,11 @@ class Video:
     @classmethod
     def EditarVideo(self,clave):
         Lista = []
-        Numeros = ['0','1','2','3','4','5','6','7','8','9']
         archivo1 = open('./archivos/videos.txt', encoding='utf8')
         for n in archivo1:
             Lista.append(n)
-            if clave == n[0] and n[1] not in Numeros:
-                if clave == n[0]:
-                    TituloN, UrlN, FechaN = input('Nombre nuevo: '), input('Url nueva: '), input('Fecha Nueva: ')
-                    V = clave + '|' + TituloN + '|' + UrlN + '|' + FechaN + '\n'
-                    Lista.remove(n)
-                    Lista.append(V)
-            elif clave == (n[0] + n[1]):
+            dato = n.split('|')
+            if clave == dato[0]:
                 TituloN, UrlN, FechaN = input('Nombre nuevo: '), input('Url nueva: '), input('Fecha Nueva: ')
                 V = clave + '|' + TituloN + '|' + UrlN + '|' + FechaN + '\n'
                 Lista.remove(n)
