@@ -1,0 +1,2 @@
+ID_Curso_Tema: 10  ID_Curso: 400  ID_Tema: 36 
+['[]ID_Curso_Tema: 10, ID_Curso: 500 ID_Tema: 35 \n']
