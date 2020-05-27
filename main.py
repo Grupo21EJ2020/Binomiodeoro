@@ -59,7 +59,7 @@ def main():
                             print("-"*40)
 
                         elif OpUsuario == 5:
-                            pass
+                            Curso_Tema.opcionct(OpUsuario2)
 
                         elif OpUsuario == 6:
                             pass
