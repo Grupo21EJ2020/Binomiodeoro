@@ -25,6 +25,14 @@ class Empleado:
     #Modificar
     #Info de todos
     #Cosulta individual
+
+def replace_line(file_name, line_num, text):
+    lines = open(file_name, 'r').readlines()
+    lines[line_num] = text
+    out = open(file_name, 'w')
+    out.writelines(lines)
+    out.close()
+
 def EmpleadoVigente():
     ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
     ArchivoEB = open("./archivos/EmpleadoBorrado.txt","r",encoding="utf8")
@@ -59,14 +67,6 @@ def EmpleadoVigente():
     return(ListaEmpleadosVigentes)    
 
 
-    
-
-
-
-
-
-
-
 def SubMenuEmpleado(opcion):
         if opcion == 1:
             #AGREGAR#
@@ -87,21 +87,30 @@ def SubMenuEmpleado(opcion):
             ArchivoEB.write(f"{IDborrarSTR}\n")
             ArchivoEB.close()
             Actualizacion1 = (EmpleadoVigente())
-            print(yes)
+            print(Actualizacion1)
             print("##Empleado borrado##")
         ## MODIFICAR ##
         elif opcion == 3:
-            EmpledoM = int(input("Dame el ID del empleado que quieres modificar"))
-            EmpledoMSTR = str(EmpledoM)
-            Actualizacion2 = (EmpleadoVigente())
-            EmpleadoAModificar = []
+            EmpledoM = int(input("Dame el ID del empleado que quieres modificar:"))
+            NombreN = input("Dame el nombre nuevo que le quieres poner:")
+            DireccionN = input("Dame la direccion nueva que le quieres poner:")
             
-            for Ac2 in Actualizacion2:
-                N = (Ac2[0:1])
-                if N == EmpledoMSTR:
-                    EmpleadoAModificar.append(Ac2)
+            Actualizacion2 = (EmpleadoVigente())
+            
+            Indice = EmpledoM - 1
 
-            print(EmpleadoAModificar)
+            replace_line("./archivos/Empleado.txt", Indice, f"{EmpledoM}|{NombreN}|{DireccionN}\n")
+
+            
+                
+
+
+
+            
+
+
+
+
 
 opcion = 3
 SubMenuEmpleado(opcion)
