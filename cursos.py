@@ -141,7 +141,32 @@ class Curso:
         C = Curso(id_curso,nombre,empleado)
         C.agregar_curso()
 
-
+    @staticmethod
+    def gestion_cursos(Opcion):
+        if Opcion == 1:
+            contador = 2
+            Curso.Agregarid(contador)
+        elif Opcion == 2:
+            codigo = Curso.clave()
+            clave = str(codigo)
+            archivo = "./archivos/Cursos.txt"
+            Curso.eliminar(archivo,clave) 
+            print("Registro eliminado con exito.")
+        elif Opcion == 3:
+            fichero = "./archivos/Cursos.txt"
+            clave = Curso.clave()
+            nombre = Curso.nombre_curso()
+            empleado = Curso.empleado()
+            codigo = str(clave)
+            Curso.modificar(fichero,codigo, nombre, empleado)
+            print("Informacion actualizada con ecito")
+        elif Opcion == 4:
+            fichero = "./archivos/Cursos.txt"
+            Curso.consultar_todo(fichero)
+        elif Opcion == 5:
+            clave = Curso.clave()
+            codigo = str(clave)
+            Curso.consultar_curso(codigo)
 
 
 
