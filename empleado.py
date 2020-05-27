@@ -1,3 +1,9 @@
+from os import system,name
+def limpiar():
+    if name == "nt":
+        system("cls")
+    else:
+        system("clear")
 
 def EmpleadoVigente():
         ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
@@ -81,24 +87,20 @@ class Empleado:
 
             nombre = input("Dame el Nombre del empleado:")
             direccion = input("Dame la direccion de tu empleado:")
-
             ArchivoEmpleado = open("./archivos/Empleado.txt","a",encoding="utf8")
-            
             ArchivoEmpleado.write(f"{ID}|{nombre}|{direccion}\n")
-            
             ArchivoEmpleado.close()
+            limpiar()
             ##ELIMINAR##
         elif opcion == 2:
-            IDborrarINT = int(input("Dame la id del empledo que quieres borrar"))
+            IDborrarINT = int(input("Dame la id del empledo que quieres borrar:"))
             IDborrarSTR = str(IDborrarINT)
-
             ArchivoEB = open("./archivos/EmpleadoBorrado.txt","a",encoding="utf8")
             ArchivoEB.write(f"{IDborrarSTR}\n")
             ArchivoEB.close()
             Actualizacion1 = (EmpleadoVigente())
-            print(Actualizacion1)
-            print("##Empleado borrado##")
-            
+            limpiar()
+
         ## MODIFICAR ##
         elif opcion == 3:
             EmpledoM = int(input("Dame el ID del empleado que quieres modificar:"))
@@ -106,8 +108,7 @@ class Empleado:
             DireccionN = input("Dame la direccion nueva que le quieres poner:")
             Indice = EmpledoM - 1
             replace_line("./archivos/Empleado.txt", Indice, f"{EmpledoM}|{NombreN}|{DireccionN}\n")
-            
-
+            limpiar()
         ##CONSULTA ESPECIFICA##
         elif opcion == 5:
             ConsultaEspecifica = int(input("Dame el ID del empledo que quieres consultar:"))
@@ -119,7 +120,6 @@ class Empleado:
                 if A == ConsultaSRT:
                     print(Z)
             
-        
         elif opcion == 4:
             Actualizacion3 = (EmpleadoVigente())
             ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
