@@ -81,4 +81,4 @@ segundo.agregarct()
 tercero.agregarct()
 
 #segundo.borrarct("15")
-print(primero.busqueda("10"))
+print(Curso_Tema.busqueda("10"))
