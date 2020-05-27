@@ -1,1 +1,19 @@
 ---Relacion Curso_Tema---
+ID_Curso_Tema: 10 | ID_Curso: 500 | ID_Tema: 35 
+ID_Curso_Tema: 15 | ID_Curso: 400 | ID_Tema: 40 
+ID_Curso_Tema: 14 | ID_Curso: 600 | ID_Tema: 45 
+ID_Curso_Tema: 10 | ID_Curso: 500 | ID_Tema: 35 
+ID_Curso_Tema: 15 | ID_Curso: 400 | ID_Tema: 40 
+ID_Curso_Tema: 14 | ID_Curso: 600 | ID_Tema: 45 
+ID_Curso_Tema: 10 | ID_Curso: 500 | ID_Tema: 35 
+ID_Curso_Tema: 15 | ID_Curso: 400 | ID_Tema: 40 
+ID_Curso_Tema: 14 | ID_Curso: 600 | ID_Tema: 45 
+ID_Curso_Tema: 10 | ID_Curso: 500 | ID_Tema: 35 
+ID_Curso_Tema: 15 | ID_Curso: 400 | ID_Tema: 40 
+ID_Curso_Tema: 14 | ID_Curso: 600 | ID_Tema: 45 
+ID_Curso_Tema: 10 | ID_Curso: 500 | ID_Tema: 35 
+ID_Curso_Tema: 15 | ID_Curso: 400 | ID_Tema: 40 
+ID_Curso_Tema: 14 | ID_Curso: 600 | ID_Tema: 45 
+ID_Curso_Tema: 10 | ID_Curso: 500 | ID_Tema: 35 
+ID_Curso_Tema: 15 | ID_Curso: 400 | ID_Tema: 40 
+ID_Curso_Tema: 14 | ID_Curso: 600 | ID_Tema: 45 
