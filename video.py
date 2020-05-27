@@ -91,10 +91,10 @@ class Video:
         archivo1.close()
     #--------------------------------------------------------------------------------------------------------
     @classmethod
-    def Agregar(self,archivo,archivo2,contador):
+    def Agregar(self,archivo,contador):
         nombre, url, fechapublicacion = input('Nombre: '), input('Url: '), input('Fecha de publicación: ')
         Lista = []
-        archivo1 = open(archivo2, encoding='utf8')
+        archivo1 = open(archivo, encoding='utf8')
         cont = 6
         for n in archivo1:
             dato = n.split('\n')
@@ -105,10 +105,10 @@ class Video:
                 idVideo = str(int(dato[0]) + 1)
                 Lista.remove(dato[0])
                 Lista.append(idVideo)
-            archivo3 = open(archivo2,"w",encoding = "utf8")
+            archivo2 = open(archivo,"w",encoding = "utf8")
             for a in Lista:
-                archivo3.write(a + '\n')
-            archivo3.close()
+                archivo2.write(a + '\n')
+            archivo2.close()
             if cont == 0:
                 break
         archivo1.close()
@@ -119,9 +119,8 @@ class Video:
     def OpcionDeVideo(Opcion):
         if Opcion == 1:
             contador = 4
-            archivo = './archivos/videos.txt'
-            archivo2 = './archivos/Numeros.txt'
-            Video.Agregar(archivo,archivo2,contador)
+            archivo = './archivos/Numeros.txt'
+            Video.Agregar(archivo,contador)
 
         elif Opcion == 2:
             archivo = './archivos/videos.txt'
