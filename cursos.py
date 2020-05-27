@@ -34,37 +34,37 @@ class Curso:
    #Metodo Agregar
     def agregar_curso(self):
         archivo = open("./archivos/Cursos.txt","a",encoding='utf8')
-        archivo.write(f"{self.__id_curso:<5} | {self.__descripcion:<20} | {self.__id_empleado:<5}| \n")
+        archivo.write(f"{self.__id_curso}| {self.__descripcion:<20} | {self.__id_empleado:<5}| \n")
         archivo.close()
     
     #Metodo estatico para pedir opciones
     @staticmethod
-    def clave():
+    def clave(cadena):
         correcto=False
         num=0
         while(not correcto):
             try:
-                num = int(input("Introduce la clave del curso: "))
+                num = int(input(f"{cadena}"))
                 correcto=True
             except ValueError:
                 print('Error, Solo se aceptan numeros enteros, intentalo nuevamente')
         return num
 
     @staticmethod
-    def empleado():
+    def empleado(cadena):
         correcto=False
         num=0
         while(not correcto):
             try:
-                num = int(input("Introduce la clave del instructor del curso: "))
+                num = int(input(f"{cadena}"))
                 correcto=True
             except ValueError:
                 print('Error, Solo se aceptan numeros enteros, intentalo nuevamente')
         return num
 
     @staticmethod
-    def nombre_curso():
-        nombre = input("Introduce el nombre del curso: ")
+    def nombre_curso(cadena):
+        nombre = input(f"{cadena}")
         return nombre
     
 
@@ -80,8 +80,8 @@ class Curso:
     def consultar_curso(self,codigo):
         archivo = open("./archivos/Cursos.txt",encoding='utf8')
         for linea in archivo.readlines():
-            lista = list(linea)
-            if codigo == lista[0]:
+            info = linea.split('|')
+            if codigo == info[0]:
                 print(linea)
         archivo.close()
 
@@ -92,13 +92,16 @@ class Curso:
         fichero = open(archivo, encoding='utf8')
         for dato in fichero:
             Lista.append(dato)
-            if clave == dato[0]:
+            info = dato.split('|')
+            if clave == info[0]:
                 Lista.remove(dato)
             resultado = open(archivo,"w",encoding = "utf8")
             for nuevo in Lista:
                 resultado.write(nuevo)
             resultado.close()
         fichero.close()
+        
+        
 
    #Metodo de actualizar
     @classmethod
@@ -107,18 +110,19 @@ class Curso:
         fichero = open(archivo, encoding='utf8')
         for dato in fichero:
             Lista.append(dato)
-            if clave == dato[0]:
+            info = dato.split('|')
+            if clave == info[0]:
                 Lista.remove(dato)
-                Lista.append(f"{clave:<5} | {nombre:<20} | {empleado:<5}| \n")
+                Lista.append(f"{clave}| {nombre:<20} | {empleado:<5}| \n")
             resultado = open(archivo,"w",encoding = "utf8")
             for nuevo in Lista:
                 resultado.write(nuevo)
             resultado.close()
         fichero.close()
-
+    #Metodo para generar codigos
     @classmethod
     def Agregarid(self,contador):
-        nombre, empleado = input('Nombre del curso: '), input(int('Empleado asigando: '))
+        nombre, empleado = input('Nombre del curso: '), input('Empleado asigando: ')
         Lista = []
         archivo1 = open('./archivos/Numeros.txt', encoding='utf8')
         cont = 6
@@ -140,31 +144,32 @@ class Curso:
         archivo1.close()
         C = Curso(id_curso,nombre,empleado)
         C.agregar_curso()
-
+        
+    #Metodo para elegir opciones
     @staticmethod
     def gestion_cursos(Opcion):
         if Opcion == 1:
             contador = 2
             Curso.Agregarid(contador)
         elif Opcion == 2:
-            codigo = Curso.clave()
+            codigo = Curso.clave("Ingresa la clave del registro que vas a eliminar: ")
             clave = str(codigo)
             archivo = "./archivos/Cursos.txt"
-            Curso.eliminar(archivo,clave) 
-            print("Registro eliminado con exito.")
+            Curso.eliminar(archivo,clave)
+            
         elif Opcion == 3:
             fichero = "./archivos/Cursos.txt"
-            clave = Curso.clave()
-            nombre = Curso.nombre_curso()
-            empleado = Curso.empleado()
+            clave = Curso.clave("Ingresa la clave del registro que vas a actualizar: ")
+            nombre = Curso.nombre_curso("Nuevo nombre del curso:")
+            empleado = Curso.empleado(f"Nuevo empleado asignado al curso {nombre}:")
             codigo = str(clave)
             Curso.modificar(fichero,codigo, nombre, empleado)
-            print("Informacion actualizada con ecito")
+            print("Informacion actualizada con exito")
         elif Opcion == 4:
             fichero = "./archivos/Cursos.txt"
             Curso.consultar_todo(fichero)
         elif Opcion == 5:
-            clave = Curso.clave()
+            clave = Curso.clave("Clave del curso que desea consultar: ")
             codigo = str(clave)
             Curso.consultar_curso(codigo)
 
