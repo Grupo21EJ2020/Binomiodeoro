@@ -45,17 +45,17 @@ class CursoTemaVideo:
             archivo2.close()
         archivo1.close()
     
-    #Modificar---------------------------------------------------------------------------
+    #Modificar-----------------------------------------------------------------------------
     @classmethod
     def ModificarCursoTemaVideo(self,clave):
-        IDCTVn, IDCTTn, IDVIDn = input("cual es el ID curso tema video"), input("cual es el ID curso tema"), input("cual es el ID del video")
-        nuevoid = str(IDCTVn) + "|" + str(IDCTTn) + "|" + str(IDVIDn)
-        #clave = int(input("Cual es el id que deseas remplazar"))
+        IDCTTn, IDVIDn = input("cual es el ID curso tema"), input("cual es el ID del video")
+        nuevoid = str(clave) + "|" + str(IDCTTn) + "|" + str(IDVIDn)
         with open('./archivos/Curso_Tema_Video.txt', 'r') as file:
             data = file.readlines()
         data[clave-1] = f'{nuevoid}\n'
         with open('./archivos/Curso_Tema_Video.txt', 'w') as file:
             file.writelines(data)
+    
     #Consultar todo----------------------------------------------------------------------
     def ConsultarCursoTemaVideo():
         archivo = open('./archivos/Curso_Tema_Video.txt',"r",encoding="utf8")
@@ -66,61 +66,60 @@ class CursoTemaVideo:
             print("idVideo:",datos[2])
         archivo.close()
 
+    #Consulta especifica---------------------------------------------------------------------
+    @classmethod
+    def ConsultarEspCursoTemaVideo(self,clave):
+        #f = open("./archivos/Curso_Tema_Video.txt", "r")
+        file = open('./archivos/Curso_Tema_Video.txt')
+        all_lines = file.readlines()
+        print(all_lines[clave-1])
+
     #Submenú temporal---------------------------------------------------------------------------------
     def OpcionCTV(Opcion):
+        #agregar
         if Opcion == 1:
-            #contador = 4
-            #archivo = './archivos/Curso_Tema_Video.txt'
-            IDCTVV, IDCTT, IDVID = input("cual es el ID curso tema video"), input("cual es el ID curso tema"), input("cual es el ID del video")
+            IDCTT, IDVID = input("cual es el ID curso tema"), input("cual es el ID del video")
+            contador = 6
+            Lista = []
+            archivo1 = open('./archivos/Numeros.txt', encoding='utf8')
+            cont = 6
+            for n in archivo1:
+                dato = n.split('\n')
+                contador = contador - 1
+                cont = cont - 1
+                Lista.append(dato[0])
+                if contador == 0:
+                    IDCTVV = str(int(dato[0]) + 1)
+                    Lista.remove(dato[0])
+                    Lista.append(IDCTVV)
+                archivo2 = open('./archivos/Numeros.txt',"w",encoding = "utf8")
+                for a in Lista:
+                    archivo2.write(a + '\n')
+                archivo2.close()
+                if cont == 0:
+                    break
+            archivo1.close()
             ids = CursoTemaVideo(IDCTVV, IDCTT, IDVID)
             ids.AgregarCursoTemaVideo()
+        
+        #eliminar
         if Opcion == 2:
             archivo = './archivos/Curso_Tema_Video.txt'
             clave = input("¿Cual es la clave del video?\n")
             CursoTemaVideo.EliminarCursoTemaVideo(archivo,clave)
+        
+        #modificar
         if Opcion == 3:
             clave = int(input('¿Cual es la clave del tema del video que quieres editar?\n'))
             CursoTemaVideo.ModificarCursoTemaVideo(clave)
+        
+        #consultarTodo
         if Opcion == 4:
             archivo = './archivos/Curso_Tema_Video.txt'
             t = CursoTemaVideo
             t.ConsultarCursoTemaVideo()
-        if Opcion == 5:
-            pass
-
-
-while True:
-    N = int(input("Que opción quiere revisar\n"))
-    CursoTemaVideo.OpcionCTV(N)
-    if N ==s s:
-        break
-
-
-#archivo = open('./archivos/Curso_Tema_Video.txt', "r") 
-#linea1 = archivo.readline()
-#print(linea1)
-
-#primero = CursoTemaVideo("15", "500", "35")
-#primero.AgregarCursoTemaVideo()
         
-#archivo = './archivos/Curso_Tema_Video.txt'
-#clave = input("¿Cual es la clave del video?\n")
-#CursoTemaVideo.EliminarCursoTemaVideo(archivo,clave)
-
-
-#primero = CursoTemaVideo("10")
-#primero.AgregarCursoTemaVideo()
-
-#v = CursoTemaVideo
-#v.ConsultarCursoTemaVideo()
-
-'''
-idctvP, IDCTTP, IDVID = input("cual es el ID curso tema video"), input("cual es el ID curso tema"), input("cual es el ID del video")
-nuevoid = str(idctvP) + "|" + str(IDCTTP) + "|" + str(IDVID)
-ids = int(input("Cual es el id que deseas remplazar"))
-with open('./archivos/Curso_Tema_Video.txt', 'r') as file:
-    data = file.readlines()
-data[ids-1] = f'{nuevoid}\n'
-with open('./archivos/Curso_Tema_Video.txt', 'w') as file:
-    file.writelines(data)
-'''
+        #consultarEsp
+        if Opcion == 5:
+            clave = int(input('¿Cual es la clave del tema del video que quieres imprimir?\n'))
+            CursoTemaVideo.ConsultarEspCursoTemaVideo(clave)
