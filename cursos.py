@@ -116,6 +116,34 @@ class Curso:
             resultado.close()
         fichero.close()
 
+    @classmethod
+    def Agregarid(self,contador):
+        nombre, empleado = input('Nombre del curso: '), input(int('Empleado asigando: '))
+        Lista = []
+        archivo1 = open('./archivos/Numeros.txt', encoding='utf8')
+        cont = 6
+        for n in archivo1:
+            dato = n.split('\n')
+            contador = contador - 1
+            cont = cont - 1
+            Lista.append(dato[0])
+            if contador == 0:
+                id_curso = str(int(dato[0]) + 1)
+                Lista.remove(dato[0])
+                Lista.append(id_curso)
+            archivo2 = open('./archivos/Numeros.txt',"w",encoding = "utf8")
+            for a in Lista:
+                archivo2.write(a + '\n')
+            archivo2.close()
+            if cont == 0:
+                break
+        archivo1.close()
+        C = Curso(id_curso,nombre,empleado)
+        C.agregar_curso()
+
+
+
+
 
  
     
