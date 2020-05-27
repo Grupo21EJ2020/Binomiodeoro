@@ -14,7 +14,7 @@ from temas import *
 from empleado import Empleado
 from curso_tema import *
 from cursos import *
-
+from curso_tema_video import *
 
 #-----------------------------------------------------------------------------------------------------------------
 def main():
@@ -64,7 +64,7 @@ def main():
                             Curso_Tema.opcionct(OpUsuario2)
 
                         elif OpUsuario == 6:
-                            pass
+                            CursoTemaVideo.OpcionCTV(OpUsuario2)
                 except:
                     limpiar_pantalla()
                     print("Opcion no válida")
