@@ -103,5 +103,30 @@ class TEMAS:
                     print(n)
         archivo.close()
 
+    @staticmethod
+    def Opciones(Opcion):
+        if Opcion == 1:
+            contador = 3
+            ubicacion = './archivos/Temas.txt'
+            ubicacion2 = './archivos/Numeros.txt'
+            TEMAS.Agregar(ubicacion,ubicacion2,contador)
 
+        elif Opcion == 2:
+            ubicacion = './archivos/Temas.txt'
+            idt = input('¿Cuál es la clave del video?\n')
+            TEMAS.Eliminar(ubicacion,idt)
+
+        elif Opcion == 3:
+            idt = input('¿Cual es la clave del video que quieres editar?\n')
+            ubicacion = './archivos/Temas.txt'
+            TEMAS.EditarTema(ubicacion,idt)
+
+        elif Opcion == 4:
+            ubicacion = './archivos/Temas.txt'
+            TEMAS.ConsultarTodo(ubicacion)
+
+        elif Opcion == 5:
+            ubicacion = './archivos/Temas.txt'
+            idt = input('¿Cuál es la clave del video?\n')
+            TEMAS.ConsultaEspecifica(ubicacion,idt)
     
