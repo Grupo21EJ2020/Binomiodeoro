@@ -10,6 +10,8 @@ def limpiar_pantalla():
         system("clear")
 
 from video import *
+from temas import *
+
 
 #-----------------------------------------------------------------------------------------------------------------
 def main():
@@ -47,9 +49,8 @@ def main():
                             pass
 
                         elif OpUsuario == 3:
-                            if OpUsuario2 == 1:
-                                nombre = input('Nombre: ')
-                                Tema.Agregar(nombre)
+                            TEMAS.Opciones(OpUsuario2)
+                            print("-"*40)
                     
                         elif OpUsuario == 4:
                             Video.OpcionDeVideo(OpUsuario2)
