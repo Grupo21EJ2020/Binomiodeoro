@@ -33,11 +33,15 @@ class Video:
     #--------------------------------------------------------------------------------
     @classmethod
     def Eliminar(self,archivo,clave):
+        Numeros = ['0','1','2','3','4','5','6','7','8','9']
         Lista = []
         archivo1 = open(archivo, encoding='utf8')
         for n in archivo1:
             Lista.append(n)
-            if clave == n[0]:
+            if clave == n[0] and n[1] not in Numeros:
+                if clave == n[0]:
+                    Lista.remove(n)
+            elif clave == (n[0] + n[1]): 
                 Lista.remove(n)
             archivo2 = open(archivo,"w",encoding = "utf8")
             for g in Lista:
@@ -121,21 +125,17 @@ class Video:
             contador = 4
             archivo = './archivos/Numeros.txt'
             Video.Agregar(archivo,contador)
-
         elif Opcion == 2:
             archivo = './archivos/videos.txt'
             clave = input('¿Cuál es la clave del video?\n')
             Video.Eliminar(archivo,clave)
-
         elif Opcion == 3:
             clave = input('¿Cual es la clave del video que quieres editar?\n')
             archivo = './archivos/videos.txt'
             Video.EditarVideo(archivo,clave)
-
         elif Opcion == 4:
             archivo = './archivos/videos.txt'
             Video.ConsultarTodo(archivo)
-
         elif Opcion == 5:
             archivo = './archivos/videos.txt'
             clave = input('¿Cuál es la clave del video?\n')

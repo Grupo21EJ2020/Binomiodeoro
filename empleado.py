@@ -36,12 +36,9 @@ def replace_line(file_name, line_num, text):
 def EmpleadoVigente():
     ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
     ArchivoEB = open("./archivos/EmpleadoBorrado.txt","r",encoding="utf8")
-
     ListaEmpleados = (ArchivoEmpleado.read().splitlines())
     ListaBorrados = (ArchivoEB.read().splitlines())
-
     ListaEmpleadosVigentes = []
-
     IDEmpleados = []
     for E in ListaEmpleados:
         N = (E[0:1])
@@ -52,8 +49,6 @@ def EmpleadoVigente():
 
     final = IDEmpleadoSET - ListaEmpleadosSET
     FINAL = list(final)
-
-
 
     for E in ListaEmpleados:
         N = (E[0:1])
@@ -66,7 +61,6 @@ def EmpleadoVigente():
     ArchivoEB.close()
     return(ListaEmpleadosVigentes)    
 
-
 def SubMenuEmpleado(opcion):
         if opcion == 1:
             #AGREGAR#
@@ -78,7 +72,7 @@ def SubMenuEmpleado(opcion):
             ArchivoEmpleado.write(f"{ID}|{nombre}|{direccion}\n")
             
             ArchivoEmpleado.close()
-
+            ##ELIMINAR##
         elif opcion == 2:
             IDborrarINT = int(input("Dame la id del empledo que quieres borrar"))
             IDborrarSTR = str(IDborrarINT)
@@ -94,25 +88,44 @@ def SubMenuEmpleado(opcion):
             EmpledoM = int(input("Dame el ID del empleado que quieres modificar:"))
             NombreN = input("Dame el nombre nuevo que le quieres poner:")
             DireccionN = input("Dame la direccion nueva que le quieres poner:")
-            
-            Actualizacion2 = (EmpleadoVigente())
-            
             Indice = EmpledoM - 1
-
             replace_line("./archivos/Empleado.txt", Indice, f"{EmpledoM}|{NombreN}|{DireccionN}\n")
 
+        ##CONSULTA ESPECIFICA##
+        elif opcion == 4:
+            ConsultaEspecifica = int(input("Dame el ID del empledo que quieres consultar:"))
+            ConsultaSRT = str(ConsultaEspecifica)
+            Actualizacion2 = (EmpleadoVigente())
+
+            for Z in Actualizacion2:
+                A = (Z[0:1])
+                if A == ConsultaSRT:
+                    print(Z)
+        
+        elif opcion == 5:
+            Actualizacion3 = (EmpleadoVigente())
+            ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
+            ListaEmpleados = (ArchivoEmpleado.read().splitlines())
+    
+            for F in ListaEmpleados:
+                A = (F[0:1])
+                for M in Actualizacion3:
+                    R = (M[0:1])
+                    if A == R:
+                        print(F)
+                    else:
+                        pass
+
+
+
+
+
+
+
+
             
-                
 
-
-
-            
-
-
-
-
-
-opcion = 3
+opcion = 5
 SubMenuEmpleado(opcion)
 
 
