@@ -133,6 +133,3 @@ class CursoTemaVideo:
         if Opcion == 5:
             clave = int(input('¿Cual es la clave del tema del video que quieres imprimir?\n'))
             CursoTemaVideo.ConsultarEspCursoTemaVideo(clave)
-
-n = int(input("dame"))
-CursoTemaVideo.OpcionCTV(n)
