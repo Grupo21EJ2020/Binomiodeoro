@@ -1,11 +1,6 @@
-1| Matematicas          | 2    | 
-2| Español              | 5    | 
-3| Ingles               | 1    | 
-4| Programacion         | 4    | 
-5| JJJJJJJJJJJJ         | 5    | 
-6| DDDDDDDDDDDDDDDDDD   | 22   | 
-7| GG                   | 1    | 
-8| LLLLLLLLLLLLLL       | 7    | 
-9| hhhhhhhhhhhhh        | 10   | 
-11| lolalaslo            | 8    | 
-12| hhh                  | 55   | 
+1| Matematicas          | 2| 
+2| Programacion         | 5| 
+3|  Bases de datos      | 2| 
+4| Ingles tecnico       | 8| 
+5| Programacion estructurada | 8| 
+6| Historia             | 7| 

@@ -34,7 +34,7 @@ class Curso:
    #Metodo Agregar
     def agregar_curso(self):
         archivo = open("./archivos/Cursos.txt","a",encoding='utf8')
-        archivo.write(f"{self.__id_curso}| {self.__descripcion:<20} | {self.__id_empleado:<5}| \n")
+        archivo.write(f"{self.__id_curso}| {self.__descripcion:<20} | {self.__id_empleado}| \n")
         archivo.close()
     
     #Metodo estatico para pedir opciones
@@ -113,7 +113,7 @@ class Curso:
             info = dato.split('|')
             if clave == info[0]:
                 Lista.remove(dato)
-                Lista.append(f"{clave}| {nombre:<20} | {empleado:<5}| \n")
+                Lista.append(f"{clave}| {nombre:<20} | {empleado}| \n")
             resultado = open(archivo,"w",encoding = "utf8")
             for nuevo in Lista:
                 resultado.write(nuevo)
