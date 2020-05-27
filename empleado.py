@@ -87,7 +87,6 @@ class Empleado:
             ArchivoEmpleado.write(f"{ID}|{nombre}|{direccion}\n")
             
             ArchivoEmpleado.close()
-            limpiar_pantalla()
             ##ELIMINAR##
         elif opcion == 2:
             IDborrarINT = int(input("Dame la id del empledo que quieres borrar"))
@@ -99,7 +98,7 @@ class Empleado:
             Actualizacion1 = (EmpleadoVigente())
             print(Actualizacion1)
             print("##Empleado borrado##")
-            limpiar_pantalla()
+            
         ## MODIFICAR ##
         elif opcion == 3:
             EmpledoM = int(input("Dame el ID del empleado que quieres modificar:"))
@@ -107,7 +106,7 @@ class Empleado:
             DireccionN = input("Dame la direccion nueva que le quieres poner:")
             Indice = EmpledoM - 1
             replace_line("./archivos/Empleado.txt", Indice, f"{EmpledoM}|{NombreN}|{DireccionN}\n")
-            limpiar_pantalla()
+            
 
         ##CONSULTA ESPECIFICA##
         elif opcion == 5:
@@ -119,7 +118,7 @@ class Empleado:
                 A = (Z[0:1])
                 if A == ConsultaSRT:
                     print(Z)
-            limpiar_pantalla()
+            
         
         elif opcion == 4:
             Actualizacion3 = (EmpleadoVigente())
@@ -135,7 +134,7 @@ class Empleado:
                         print(F)
                     else:
                         pass
-            limpiar_pantalla()
+            
                 
                 
 
