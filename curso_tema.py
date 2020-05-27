@@ -30,7 +30,7 @@ class Curso_Tema:
 
     def agregarct(self):
         archivo = open('./archivos/curso_tema.txt', 'a', encoding='utf8')
-        archivo.write(f"{'ID_Curso_Tema: %s'%self.__idct} {'ID_Curso: %s'%self.idcurso} {'ID_Tema: %s'%self.__idtema} \n")
+        archivo.write(f"{'ID_Curso_Tema: %s'%self.__idct} | {'ID_Curso: %s'%self.idcurso} | {'ID_Tema: %s'%self.__idtema} \n")
         archivo.close()
     
     def borrarct(self, valor):
@@ -55,17 +55,30 @@ class Curso_Tema:
         
         clave = " ".join(clave)
         archivo = open('./archivos/curso_tema.txt', 'w', encoding='utf8')
-        clave = (f"ID_Curso_Tema: {valor}  ID_Curso: {valor2}  ID_Tema: {valor3} \n" + "%s"%clave)
+        clave = (f"ID_Curso_Tema: {valor} | ID_Curso: {valor2} | ID_Tema: {valor3} \n" + "%s"%clave)
         archivo.write("%s"%clave)
         archivo.close
     
-
+    def vistageneral(self):
+        archivo = open('./archivos/curso_tema.txt', 'r')
+        clave = archivo.readlines()
+        clave = " ".join(clave)
+        return f"{clave}"
+    
+    def busqueda(self, valor):
+        archivo = open('./archivos/curso_tema.txt', 'r')
+        clave = archivo.readlines()
+        for i in clave:
+            if valor in i:
+                return i
 
 primero = Curso_Tema("10", "500", "35")
 segundo = Curso_Tema("15", "400", "40")
+tercero = Curso_Tema("14", "600", "45")
 
 primero.agregarct()
 segundo.agregarct()
+tercero.agregarct()
 
-primero.modificarct("10", "400", "600")
-segundo.borrarct("15")
+#segundo.borrarct("15")
+print(primero.busqueda("10"))
