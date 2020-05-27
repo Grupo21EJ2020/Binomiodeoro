@@ -39,7 +39,19 @@ class TEMAS:
                     print(n)
         archivo1.close()
 #---------------------------------------------------
-
+    @classmethod
+    def Eliminar(self,archivo,clave):
+        Lista = []
+        archivo1 = open(archivo, encoding='utf8')
+        for n in archivo1:
+            Lista.append(n)
+            if clave == n[0]:
+                Lista.remove(n)
+            archivo2 = open(archivo,"w",encoding = "utf8")
+            for g in Lista:
+                archivo2.write(g)
+            archivo2.close()
+        archivo1.close()
 
 
     
