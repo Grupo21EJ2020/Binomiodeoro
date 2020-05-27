@@ -46,7 +46,7 @@ def main():
                     
                         if OpUsuario == 1:
                             Empleado.OpciondeEmpleado(OpUsuario2)
-
+                            print("-"*40)
                         elif OpUsuario == 2:
                             pass
 
