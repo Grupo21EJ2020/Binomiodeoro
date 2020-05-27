@@ -1,3 +1,38 @@
+def EmpleadoVigente():
+        ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
+        ArchivoEB = open("./archivos/EmpleadoBorrado.txt","r",encoding="utf8")
+        ListaEmpleados = (ArchivoEmpleado.read().splitlines())
+        ListaBorrados = (ArchivoEB.read().splitlines())
+        ListaEmpleadosVigentes = []
+        IDEmpleados = []
+        for E in ListaEmpleados:
+            N = (E[0:1])
+            IDEmpleados.append(N)
+
+        IDEmpleadoSET = set(IDEmpleados)
+        ListaEmpleadosSET = set(ListaBorrados)
+
+        final = IDEmpleadoSET - ListaEmpleadosSET
+        FINAL = list(final)
+
+        for E in ListaEmpleados:
+            N = (E[0:1])
+            for S in FINAL:
+                if N == S:
+                    ListaEmpleadosVigentes.append(E)
+            else:
+                pass
+        ArchivoEmpleado.close()
+        ArchivoEB.close()
+        return(ListaEmpleadosVigentes) 
+
+def replace_line(file_name, line_num, text):
+        lines = open(file_name, 'r').readlines()
+        lines[line_num] = text
+        out = open(file_name, 'w')
+        out.writelines(lines)
+        out.close()
+        
 class Empleado:
     def __init__ (self,idempleado,nombre,direccion):
         self.__idempleado, self.__nombre, self.__direccion = idempleado, nombre, direccion
@@ -18,50 +53,17 @@ class Empleado:
     def direccion(self,valor):
         self.__nombre = valor
     
-    ######
-    ######
-    #Agregar
-    #Borrar
-    #Modificar
-    #Info de todos
-    #Cosulta individual
+     
 
-def replace_line(file_name, line_num, text):
-    lines = open(file_name, 'r').readlines()
-    lines[line_num] = text
-    out = open(file_name, 'w')
-    out.writelines(lines)
-    out.close()
+    
+    
+   
 
-def EmpleadoVigente():
-    ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
-    ArchivoEB = open("./archivos/EmpleadoBorrado.txt","r",encoding="utf8")
-    ListaEmpleados = (ArchivoEmpleado.read().splitlines())
-    ListaBorrados = (ArchivoEB.read().splitlines())
-    ListaEmpleadosVigentes = []
-    IDEmpleados = []
-    for E in ListaEmpleados:
-        N = (E[0:1])
-        IDEmpleados.append(N)
+    
 
-    IDEmpleadoSET = set(IDEmpleados)
-    ListaEmpleadosSET = set(ListaBorrados)
-
-    final = IDEmpleadoSET - ListaEmpleadosSET
-    FINAL = list(final)
-
-    for E in ListaEmpleados:
-        N = (E[0:1])
-        for S in FINAL:
-            if N == S:
-                ListaEmpleadosVigentes.append(E)
-        else:
-            pass
-    ArchivoEmpleado.close()
-    ArchivoEB.close()
-    return(ListaEmpleadosVigentes)    
-
-def SubMenuEmpleado(opcion):
+    
+    @classmethod
+    def SubMenuEmpleado(self,opcion):
         if opcion == 1:
             #AGREGAR#
             ID = int(input("Dame el ID de el empleado nuevo:"))
@@ -115,8 +117,13 @@ def SubMenuEmpleado(opcion):
                         print(F)
                     else:
                         pass
+                
+U = Empleado
+
+op = int(input("Dame la opcionque quieres"))
 
 
+U.SubMenuEmpleado(op)
 
 
 
@@ -125,8 +132,8 @@ def SubMenuEmpleado(opcion):
 
             
 
-opcion = 5
-SubMenuEmpleado(opcion)
+
+
 
 
 
