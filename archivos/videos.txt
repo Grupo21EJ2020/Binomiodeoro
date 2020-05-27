@@ -1,0 +1,6 @@
+1|Curso Introductorio Python|www.youtube.com/pyintroductorio|15/01/2019
+2|¿Qué es un Sistema Numérico?|www.youtube.com/whatisanumericsystem|15/02/2018
+3|Manejo de Base de Datos|www.youtube.com/databasemanagment|15/06/2010
+4|Costeos|www.youtube.com/costeos|18/12/2019
+5|¿Qué es elasticidad?|www.youtube.com/elasticidaddefinition|25/04/2018
+6|Abecedario en inglés|www.youtube.com/abcenglish|25/05/2020

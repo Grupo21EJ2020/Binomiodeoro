@@ -1,0 +1,6 @@
+1|Introducción a la Programación
+2|Sistemas Numéricos
+3|Introducción a MySQL
+4|Costeo por órdenes
+5|Elasticidad
+6|How to talk in english?

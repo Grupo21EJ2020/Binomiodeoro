@@ -1,6 +1,6 @@
-1| Matematicas          | 2| 
-2| Programacion         | 5| 
-3|  Bases de datos      | 2| 
-4| Ingles tecnico       | 8| 
-5| Programacion estructurada | 8| 
-6| Historia             | 7| 
+1| Programación Avanzada | 1| 
+2| Tecnicas Cuantitativas | 2| 
+3| Gestión de Base de Datos | 3| 
+4| Costos               | 4| 
+5| Microeconomía        | 5| 
+6| Inglés               | 6| 
