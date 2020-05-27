@@ -11,16 +11,19 @@ class TEMAS:
     @nombre.setter
     def nombre(self,valor):
         self.__nombre = valor
-
+    
+    def AgregarTema(self):
+        archivo = open('./archivos/Temas.txt','w',encoding='utf8')
+        archivo.write(self.__idtema + '|' + self.__nombre  + '\n')
+        archivo.close()
 #--------------------------------------------------
-@classmethod
+    @classmethod
     def ConsultarTodo(self,archivo):
         archivo1 = open(archivo, encoding='utf8')
         print(archivo1.read())
         archivo1.close()
 
 #--------------------------------------------------
-
 
 
 
