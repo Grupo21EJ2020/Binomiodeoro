@@ -29,17 +29,19 @@ class Curso_Tema:
         return self.__idct == otro.__idct
 
     def agregarct(self):
-        archivo = open('./archivos/curso_tema.txt', 'w', encoding='utf8')
+        archivo = open('./archivos/curso_tema.txt', 'a', encoding='utf8')
         archivo.write(f"{'ID_Curso_Tema: %s'%self.__idct} {'ID_Curso: %s'%self.idcurso} {'ID_Tema: %s'%self.__idtema} \n")
         archivo.close()
     
     def borrarct(self, valor):
-        archivo = open('./archivos/curso_tema.txt', 'w')
+        archivo = open('./archivos/curso_tema.txt', 'r')
         clave = archivo.readlines()
 
         for i in clave:
             if valor in i:
                 clave.remove(i)
+        archivo = open('./archivos/curso_tema.txt', 'w')
+        clave = " ".join(clave)
         archivo.write("%s"%clave)
         archivo.close
 
@@ -58,10 +60,12 @@ class Curso_Tema:
         archivo.close
     
 
-'''primero = Curso_Tema("10", "500", "35")
+
+primero = Curso_Tema("10", "500", "35")
 segundo = Curso_Tema("15", "400", "40")
 
 primero.agregarct()
 segundo.agregarct()
 
-primero.modificarct("10", "400", "600")'''
+primero.modificarct("10", "400", "600")
+segundo.borrarct("15")
