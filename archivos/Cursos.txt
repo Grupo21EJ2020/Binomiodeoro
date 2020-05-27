@@ -1,3 +1,11 @@
-1     | Programacion web     | 3    | 
-2     | Redes                | 4    | 
-4     | Historia             | 10   | 
+1| Matematicas          | 2    | 
+2| Español              | 5    | 
+3| Ingles               | 1    | 
+4| Programacion         | 4    | 
+5| JJJJJJJJJJJJ         | 5    | 
+6| DDDDDDDDDDDDDDDDDD   | 22   | 
+7| GG                   | 1    | 
+8| LLLLLLLLLLLLLL       | 7    | 
+9| hhhhhhhhhhhhh        | 10   | 
+11| lolalaslo            | 8    | 
+12| hhh                  | 55   | 
