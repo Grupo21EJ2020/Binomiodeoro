@@ -11,7 +11,7 @@ def limpiar_pantalla():
 
 from video import *
 from temas import *
-from empleado import *
+from empleado import Empleado
 from curso_tema import *
 
 
@@ -46,7 +46,7 @@ def main():
                     
                         if OpUsuario == 1:
                             Empleado.OpciondeEmpleado(OpUsuario2)
-
+                            print("-"*40)
                         elif OpUsuario == 2:
                             pass
 
