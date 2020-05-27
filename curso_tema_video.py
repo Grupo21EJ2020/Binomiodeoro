@@ -1,5 +1,5 @@
 class CursoTemaVideo:
-    def __init__ (self,idCT,idCTV,idVideo):
+    def __init__ (self,idCTV,idCT,idVideo):
         self.idCTV, self.idCT, self.__idVideo = idCTV, idCT, idVideo
     @property
     def idCTV(self):
@@ -20,10 +20,8 @@ class CursoTemaVideo:
     def idVideo(self, valor):
         self.__idVideo = valor
     
+    def AgregarCursoTemaVideo(self):
+        archivo = open('./archivos/Curso_Tema_Video.txt','a',encoding='utf8')
+        archivo.write(self.__idCTV + '|' + self.__idCT + '|' + self.__idVideo +'\n')
+        archivo.close()
     
-
-
-    
-
-        
-  
