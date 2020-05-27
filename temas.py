@@ -13,8 +13,5 @@ class TEMAS:
         self.__nombre = valor
 
 
-    def AgregarTema(self):
-        archivo = open('./archivos/Temas.txt','w',encoding='utf8')
-        archivo.write(self.__idtema + '|' + self.__nombre  + '\n')
-        archivo.close()
+
     
