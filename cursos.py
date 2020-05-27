@@ -30,3 +30,9 @@ class Curso:
     @id_empleado.setter
     def id_empleado(self, valor):
         self.__id_empleado = valor
+
+   #Metodo Agregar
+    def agregar_curso(self):
+        archivo = open("./archivos/Cursos.txt","a",encoding='utf8')
+        archivo.write(f"{self.__id_curso:<5} | {self.__descripcion:<20} | {self.__id_empleado:<5}| \n")
+        archivo.close()
