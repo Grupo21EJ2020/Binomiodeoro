@@ -74,4 +74,15 @@ class Curso:
         archivo = open(fichero,encoding='utf8')
         print(archivo.read())
         archivo.close()
+
+    #Metodo consulta especifica
+    @classmethod
+    def consultar_curso(self,codigo):
+        archivo = open("./archivos/Cursos.txt",encoding='utf8')
+        for linea in archivo.readlines():
+            lista = list(linea)
+            if codigo == lista[0]:
+                print(linea)
+        archivo.close()
+    
     
