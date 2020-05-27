@@ -10,7 +10,7 @@ def limpiar_pantalla():
         system("clear")
 
 from video import *
-from temas import
+from temas import *
 
 
 #-----------------------------------------------------------------------------------------------------------------
