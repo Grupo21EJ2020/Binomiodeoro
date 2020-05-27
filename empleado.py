@@ -32,7 +32,7 @@ def replace_line(file_name, line_num, text):
         out = open(file_name, 'w')
         out.writelines(lines)
         out.close()
-        
+
 class Empleado:
     def __init__ (self,idempleado,nombre,direccion):
         self.__idempleado, self.__nombre, self.__direccion = idempleado, nombre, direccion
@@ -63,7 +63,7 @@ class Empleado:
 
     
     @classmethod
-    def SubMenuEmpleado(self,opcion):
+    def OpciondeEmpleado(self,opcion):
         if opcion == 1:
             #AGREGAR#
             ID = int(input("Dame el ID de el empleado nuevo:"))
@@ -94,7 +94,7 @@ class Empleado:
             replace_line("./archivos/Empleado.txt", Indice, f"{EmpledoM}|{NombreN}|{DireccionN}\n")
 
         ##CONSULTA ESPECIFICA##
-        elif opcion == 4:
+        elif opcion == 5:
             ConsultaEspecifica = int(input("Dame el ID del empledo que quieres consultar:"))
             ConsultaSRT = str(ConsultaEspecifica)
             Actualizacion2 = (EmpleadoVigente())
@@ -104,7 +104,7 @@ class Empleado:
                 if A == ConsultaSRT:
                     print(Z)
         
-        elif opcion == 5:
+        elif opcion == 4:
             Actualizacion3 = (EmpleadoVigente())
             ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
             ListaEmpleados = (ArchivoEmpleado.read().splitlines())
@@ -118,12 +118,10 @@ class Empleado:
                     else:
                         pass
                 
-U = Empleado
-
-op = int(input("Dame la opcionque quieres"))
 
 
-U.SubMenuEmpleado(op)
+
+
 
 
 

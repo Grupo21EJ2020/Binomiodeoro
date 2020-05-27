@@ -11,6 +11,7 @@ def limpiar_pantalla():
 
 from video import *
 from temas import *
+from empleado import *
 
 
 #-----------------------------------------------------------------------------------------------------------------
@@ -43,7 +44,7 @@ def main():
                     else:
                     
                         if OpUsuario == 1:
-                            pass
+                            Empleado.OpciondeEmpleado(OpUsuario2)
 
                         elif OpUsuario == 2:
                             pass
