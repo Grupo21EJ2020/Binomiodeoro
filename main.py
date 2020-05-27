@@ -1,13 +1,14 @@
-menuprincipal = ["1. Empleados","2. Cursos","3. Temas","4. Vídeos","5. Temas asignados a un curso","6. Vídeos asignados a un tema", "7. Salir"]
-
-submenu = ["1. Agregar","2. Eliminar","3. Modificar","4. Consultar todo","5. Ver información específica"]
-
 from os import system,name
 def limpiar_pantalla():
     if name == "nt":
         system("cls")
     else:
         system("clear")
+menuprincipal = ["1. Empleados","2. Cursos","3. Temas","4. Vídeos","5. Temas asignados a un curso","6. Vídeos asignados a un tema", "7. Salir","-----------------------------------"]
+
+submenu = ["-----------------------------------","            [SubMenu]","-----------------------------------","1. Agregar","2. Eliminar","3. Modificar","4. Consultar todo","5. Ver información específica","-----------------------------------"]
+
+limpiar_pantalla()
 
 from video import *
 from temas import *
@@ -19,7 +20,7 @@ from curso_tema_video import *
 #-----------------------------------------------------------------------------------------------------------------
 def main():
     while True:
-        print("Menú Principal\nEliga la Base de Datos a manipular:\n")
+        print("-----------------------------------\n         [Menú Principal]\n-----------------------------------\nEliga la Base de Datos a manipular:\n")
         #Menú Principal---------(Empleado, curso, tema, video, tema asignado a curso, video asignado a tema)-----
         for a in menuprincipal:
             print(a)
