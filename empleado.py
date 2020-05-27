@@ -1,3 +1,4 @@
+
 def EmpleadoVigente():
         ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
         ArchivoEB = open("./archivos/EmpleadoBorrado.txt","r",encoding="utf8")
@@ -57,15 +58,36 @@ class Empleado:
     @classmethod
     def OpciondeEmpleado(self,opcion):
         if opcion == 1:
-            #AGREGAR#
-            ID = int(input("Dame el ID de el empleado nuevo:"))
+            Lista = []
+            contador = 1
+            archivo1 = open('./archivos/Numeros.txt', encoding='utf8')
+            cont = 6
+            for n in archivo1:
+                dato = n.split('\n')
+                contador = contador - 1
+                cont = cont - 1
+                Lista.append(dato[0])
+                if contador == 0:
+                    ID = str(int(dato[0]) + 1)
+                    Lista.remove(dato[0])
+                    Lista.append(ID)
+                archivo2 = open('./archivos/Numeros.txt',"w",encoding = "utf8")
+                for a in Lista:
+                    archivo2.write(a + '\n')
+                archivo2.close()
+                if cont == 0:
+                    break
+            archivo1.close()
+
             nombre = input("Dame el Nombre del empleado:")
             direccion = input("Dame la direccion de tu empleado:")
 
             ArchivoEmpleado = open("./archivos/Empleado.txt","a",encoding="utf8")
+            
             ArchivoEmpleado.write(f"{ID}|{nombre}|{direccion}\n")
             
             ArchivoEmpleado.close()
+            limpiar_pantalla()
             ##ELIMINAR##
         elif opcion == 2:
             IDborrarINT = int(input("Dame la id del empledo que quieres borrar"))
@@ -77,6 +99,7 @@ class Empleado:
             Actualizacion1 = (EmpleadoVigente())
             print(Actualizacion1)
             print("##Empleado borrado##")
+            limpiar_pantalla()
         ## MODIFICAR ##
         elif opcion == 3:
             EmpledoM = int(input("Dame el ID del empleado que quieres modificar:"))
@@ -84,6 +107,7 @@ class Empleado:
             DireccionN = input("Dame la direccion nueva que le quieres poner:")
             Indice = EmpledoM - 1
             replace_line("./archivos/Empleado.txt", Indice, f"{EmpledoM}|{NombreN}|{DireccionN}\n")
+            limpiar_pantalla()
 
         ##CONSULTA ESPECIFICA##
         elif opcion == 5:
@@ -95,11 +119,13 @@ class Empleado:
                 A = (Z[0:1])
                 if A == ConsultaSRT:
                     print(Z)
+            limpiar_pantalla()
         
         elif opcion == 4:
             Actualizacion3 = (EmpleadoVigente())
             ArchivoEmpleado = open("./Archivos/Empleado.txt","r",encoding="utf8")
             ListaEmpleados = (ArchivoEmpleado.read().splitlines())
+            
     
             for F in ListaEmpleados:
                 A = (F[0:1])
@@ -109,6 +135,8 @@ class Empleado:
                         print(F)
                     else:
                         pass
+            limpiar_pantalla()
+                
                 
 
 
