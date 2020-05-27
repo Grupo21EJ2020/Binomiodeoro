@@ -1,7 +1,6 @@
 class TEMAS:
     def __init__ (self,idtema,nombre):
-        self.__idtema, self.__nombre = idtema, nombre
-
+        self.__idtema, self.__nombre = idtema, nombre    
     @property 
     def idtema(self):
         return self.__idtema
@@ -11,12 +10,15 @@ class TEMAS:
     @nombre.setter
     def nombre(self,valor):
         self.__nombre = valor
-    
+    @idtema.setter
+    def idtema(self):
+        self.__idtema   
+    #-------------------------------------------------------------------------------------------
     def AgregarTema(self):
         archivo = open('./archivos/Temas.txt','a',encoding='utf8')
-        archivo.write(self.__idtema + '|' + self.__nombre  + '\n')
+        archivo.write(self.__idtema + '|' + self.__nombre + '\n')
         archivo.close()
-
+    
     @classmethod
     def Agregar(self,ubi,ubi2,contador):
         nombre = input('Nombre: ')
@@ -41,9 +43,9 @@ class TEMAS:
         archivo1.close()
         T = TEMAS(idtema,nombre)
         T.AgregarTema()
-#--------------------------------------------------
-       @classmethod
-        def Eliminar(self,ubi,clave):
+    #--------------------------------------------------------------------------------
+    @classmethod
+    def Eliminar(self,ubi,clave):
         Lista = []
         archivo1 = open(ubi, encoding='utf8')
         for n in archivo1:
@@ -55,9 +57,8 @@ class TEMAS:
                 archivo2.write(g)
             archivo2.close()
         archivo1.close()
-
-#--------------------------------------------------
-   @classmethod
+    #---------------------------------------------------------------------------------------------------
+    @classmethod
     def EditarTema(self,ubi,idt):
         Lista = []
         Numeros = ['0','1','2','3','4','5','6','7','8','9']
@@ -80,14 +81,13 @@ class TEMAS:
                 archivos2.write(x)       
             archivos2.close()
         archivo1.close()
-#---------------------------------------------------
+    #----------------------------------------------------
     @classmethod
     def ConsultarTodo(self,ubi):
         archivo = open(ubi, encoding='utf8')
         print(archivo.read())
         archivo.close()
-
-#----------------------------------------------------
+    #-----------------------------------------------------
     @classmethod
     def ConsultaEspecifica(self,ubi,clave):
         archivo = open(ubi, encoding='utf8')
@@ -102,7 +102,7 @@ class TEMAS:
                 if clave == (n[0] + n[1]):
                     print(n)
         archivo.close()
-
+    #-------------------------------------------------------------------------------------------------------------
     @staticmethod
     def Opciones(Opcion):
         if Opcion == 1:
