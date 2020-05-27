@@ -77,13 +77,15 @@ class CursoTemaVideo:
 
     #Consulta especifica---------------------------------------------------------------------
     @classmethod
-    def ConsultarEspCursoTemaVideo(self,clave):
-        archivo = open('./archivos/Curso_Tema_Video.txt',encoding='utf8')
-        for i in archivo.readlines():
-            i = list(i)
-            if clave == lista[0]:
-                print(i)
-        archivo.close()
+    def CTVConsultaEspecifica(self,clave):
+        archivo1 = open('./archivos/Curso_Tema_Video.txt', encoding='utf8')
+        Lista = []
+        for n in archivo1:
+            Lista.append(n)
+            dato = n.split('|')
+            if clave == dato[0]:
+                print(n)
+        archivo1.close()
 
     @staticmethod
     def OpcionCTV(Opcion):
@@ -121,7 +123,7 @@ class CursoTemaVideo:
         
         #modificar
         if Opcion == 3:
-            clave = int(input('¿Cual es la clave del tema del video que quieres editar?\n'))
+            clave = (input('¿Cual es la clave del tema del video que quieres editar?\n'))
             CursoTemaVideo.ModificarCursoTemaVideo(clave)
         
         #consultarTodo
@@ -129,7 +131,7 @@ class CursoTemaVideo:
             archivo = './archivos/Curso_Tema_Video.txt'
             CursoTemaVideo.ConsultarCursoTemaVideo(archivo)
         
-        #consultarEsp
+	    #consultarEsp
         if Opcion == 5:
-            clave = int(input('¿Cual es la clave del tema del video que quieres imprimir?\n'))
-            CursoTemaVideo.ConsultarEspCursoTemaVideo(clave)
+            clave = (input('¿Cual es la clave del tema del video que quieres imprimir?\n'))
+            CursoTemaVideo.CTVConsultaEspecifica(clave)
