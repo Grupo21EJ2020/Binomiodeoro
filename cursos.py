@@ -100,6 +100,23 @@ class Curso:
             resultado.close()
         fichero.close()
 
+   #Metodo de actualizar
+    @classmethod
+    def modificar(self,archivo,clave,nombre,empleado):
+        Lista = []
+        fichero = open(archivo, encoding='utf8')
+        for dato in fichero:
+            Lista.append(dato)
+            if clave == dato[0]:
+                Lista.remove(dato)
+                Lista.append(f"{clave:<5} | {nombre:<20} | {empleado:<5}| \n")
+            resultado = open(archivo,"w",encoding = "utf8")
+            for nuevo in Lista:
+                resultado.write(nuevo)
+            resultado.close()
+        fichero.close()
+
+
  
     
     
