@@ -11,6 +11,7 @@ def limpiar_pantalla():
 
 from video import *
 from temas import *
+from curso_tema import *
 
 
 #-----------------------------------------------------------------------------------------------------------------
