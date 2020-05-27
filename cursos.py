@@ -84,5 +84,22 @@ class Curso:
             if codigo == lista[0]:
                 print(linea)
         archivo.close()
+
+    #Metodo de eliminar un curso
+    @classmethod
+    def eliminar(self,archivo,clave):
+        Lista = []
+        fichero = open(archivo, encoding='utf8')
+        for dato in fichero:
+            Lista.append(dato)
+            if clave == dato[0]:
+                Lista.remove(dato)
+            resultado = open(archivo,"w",encoding = "utf8")
+            for nuevo in Lista:
+                resultado.write(nuevo)
+            resultado.close()
+        fichero.close()
+
+ 
     
     
