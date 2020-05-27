@@ -47,7 +47,8 @@ def main():
                             pass
 
                         elif OpUsuario == 3:
-                            pass
+                            nombre = input('Nombre: ')
+                            TEMAS.Agregar(nombre)
                     
                         elif OpUsuario == 4:
                             Video.OpcionDeVideo(OpUsuario2)
