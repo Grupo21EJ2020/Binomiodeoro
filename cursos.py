@@ -36,3 +36,34 @@ class Curso:
         archivo = open("./archivos/Cursos.txt","a",encoding='utf8')
         archivo.write(f"{self.__id_curso:<5} | {self.__descripcion:<20} | {self.__id_empleado:<5}| \n")
         archivo.close()
+    
+    #Metodo estatico para pedir opciones
+    @staticmethod
+    def clave():
+        correcto=False
+        num=0
+        while(not correcto):
+            try:
+                num = int(input("Introduce la clave del curso: "))
+                correcto=True
+            except ValueError:
+                print('Error, Solo se aceptan numeros enteros, intentalo nuevamente')
+        return num
+
+    @staticmethod
+    def empleado():
+        correcto=False
+        num=0
+        while(not correcto):
+            try:
+                num = int(input("Introduce la clave del instructor del curso: "))
+                correcto=True
+            except ValueError:
+                print('Error, Solo se aceptan numeros enteros, intentalo nuevamente')
+        return num
+
+    @staticmethod
+    def nombre_curso():
+        nombre = input("Introduce el nombre del curso: ")
+        return nombre
+    
