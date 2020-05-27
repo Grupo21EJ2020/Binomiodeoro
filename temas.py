@@ -50,7 +50,8 @@ class TEMAS:
         archivo1 = open(ubi, encoding='utf8')
         for n in archivo1:
             Lista.append(n)
-            if clave == n[0]:
+            dato = n.split('|')
+            if clave == dato[0]:
                 Lista.remove(n)
             archivo2 = open(ubi,"w",encoding = "utf8")
             for g in Lista:
@@ -61,17 +62,11 @@ class TEMAS:
     @classmethod
     def EditarTema(self,ubi,idt):
         Lista = []
-        Numeros = ['0','1','2','3','4','5','6','7','8','9']
         archivo1 = open(ubi, encoding='utf8')
         for n in archivo1:
             Lista.append(n)
-            if idt == n[0] and n[1] not in Numeros:
-                if idt == n[0]:
-                    Nombre = input('Nombre nuevo: ')
-                    T = idt + '|' + Nombre + '\n'
-                    Lista.remove(n)
-                    Lista.append(T)
-            elif idt == (n[0] + n[1]):
+            dato = n.split('|')
+            if idt == dato[0]:
                 Nombre = input('Nombre nuevo: ')
                 T = idt + '|' + Nombre + '\n'
                 Lista.remove(n)
@@ -92,15 +87,11 @@ class TEMAS:
     def ConsultaEspecifica(self,ubi,clave):
         archivo = open(ubi, encoding='utf8')
         Lista = []
-        Numeros = ['0','1','2','3','4','5','6','7','8','9']
         for n in archivo:
             Lista.append(n)
-            if clave == n[0] and n[1] not in Numeros:
-                if clave == n[0]:
-                    print(n)
-            elif len(clave) == len(n[0] + n[1]):
-                if clave == (n[0] + n[1]):
-                    print(n)
+            dato = n.split('|')
+            if clave == dato[0]:
+                print(n)
         archivo.close()
     #-------------------------------------------------------------------------------------------------------------
     @staticmethod

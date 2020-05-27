@@ -13,7 +13,8 @@ from video import *
 from temas import *
 from empleado import Empleado
 from curso_tema import *
-
+from cursos import *
+from curso_tema_video import *
 
 #-----------------------------------------------------------------------------------------------------------------
 def main():
@@ -48,7 +49,8 @@ def main():
                             Empleado.OpciondeEmpleado(OpUsuario2)
                             print("-"*40)
                         elif OpUsuario == 2:
-                            pass
+                            Curso.gestion_cursos(OpUsuario2)
+                            print("-"*40)
 
                         elif OpUsuario == 3:
                             TEMAS.Opciones(OpUsuario2)
@@ -59,10 +61,10 @@ def main():
                             print("-"*40)
 
                         elif OpUsuario == 5:
-                            pass
+                            Curso_Tema.opcionct(OpUsuario2)
 
                         elif OpUsuario == 6:
-                            pass
+                            CursoTemaVideo.OpcionCTV(OpUsuario2)
                 except:
                     limpiar_pantalla()
                     print("Opcion no válida")
