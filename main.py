@@ -30,7 +30,7 @@ def main():
             limpiar_pantalla()
             if OpUsuario < 1 or OpUsuario > 7:
                 print("Opción no válida")
-                print("-"*40)
+                print("-"*35)
             elif OpUsuario == 7:
                 print("Programa Terminado")
                 break
@@ -43,36 +43,38 @@ def main():
                     limpiar_pantalla()
                     if OpUsuario2 < 1 or OpUsuario2 > 5:
                         print("Opción no válida")
-                        print("-"*40)
+                        print("-"*35)
                     else:
                     
                         if OpUsuario == 1:
                             Empleado.OpciondeEmpleado(OpUsuario2)
-                            print("-"*40)
+                            print("-"*35)
                         elif OpUsuario == 2:
                             Curso.gestion_cursos(OpUsuario2)
-                            print("-"*40)
+                            print("-"*35)
 
                         elif OpUsuario == 3:
                             TEMAS.Opciones(OpUsuario2)
-                            print("-"*40)
+                            print("-"*35)
                     
                         elif OpUsuario == 4:
                             Video.OpcionDeVideo(OpUsuario2)
-                            print("-"*40)
+                            print("-"*35)
 
                         elif OpUsuario == 5:
                             Curso_Tema.opcionct(OpUsuario2)
+                            print("-"*35)
 
                         elif OpUsuario == 6:
                             CursoTemaVideo.OpcionCTV(OpUsuario2)
+                            print("-"*35)
                 except:
                     limpiar_pantalla()
                     print("Opcion no válida")
-                    print("-"*40)
+                    print("-"*35)
             
         except:
             limpiar_pantalla()
             print("Opcion no válida")
-            print("-"*40)
+            print("-"*35)
 main()    
