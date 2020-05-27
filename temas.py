@@ -42,8 +42,8 @@ class TEMAS:
         T = TEMAS(idtema,nombre)
         T.AgregarTema()
 #--------------------------------------------------
-   @classmethod
-    def Eliminar(self,ubi,clave):
+       @classmethod
+        def Eliminar(self,ubi,clave):
         Lista = []
         archivo1 = open(ubi, encoding='utf8')
         for n in archivo1:
