@@ -10,12 +10,12 @@ submenu = ["-----------------------------------","            [SubMenu]","------
 
 limpiar_pantalla()
 
-from video import *
-from temas import *
-from empleado import Empleado
-from curso_tema import *
-from cursos import *
-from curso_tema_video import *
+from src.video import *
+from src.temas import *
+from src.empleado import Empleado
+from src.curso_tema import *
+from src.cursos import *
+from src.curso_tema_video import *
 
 #-----------------------------------------------------------------------------------------------------------------
 def main():
